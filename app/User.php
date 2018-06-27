@@ -58,7 +58,7 @@ class User extends Authenticatable
         $exist = $this->is_following($userId);
         $its_me = $this->id == $userId;
         
-        if ($exist && !$its_me) {
+        if ($exist && $its_me) {
             $this->followings()->detach($userId);
             return true;
         } else {
@@ -99,7 +99,7 @@ class User extends Authenticatable
         $exist = $this->is_favoriting($postId);
         
         if ($exist) {
-            $this->favorite()->detach($postId);
+            $this->favorite()->detach($postId); 
             return true;
         } else {
             return false;

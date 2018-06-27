@@ -14,7 +14,7 @@
             </div>
                 <div class="btn-toolbar">
                     <div class="btn-group">
-                    @include('user_favorite.favorite_button', ['user' => $user])
+                    @include('user_favorite.favorite_button', ['post' =>$micropost])
                     </div>
                     <div class="btn-group">
                     @if (Auth::id() == $micropost->user_id)
